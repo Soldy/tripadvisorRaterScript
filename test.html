@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style type="text/css">
+            .tripadvisorRateHouse{
+                float: left;
+                position:relative;
+                width:16px;
+                height:16px;
+                border: #599642 solid 2px;
+                border-radius:16px;
+                left-margin:1px;
+            }
+
+
+            .tripadvisorRateCircle{
+                float: left;
+                position:relative;
+                width:12px;
+                height:12px;
+                background: #599642;
+                border-radius:12px;
+                margin:2px;
+            }
+
+            .tripadvisorRateHalfCircle{
+                float: left;
+                position:relative;
+                width:6px;
+                height:12px;
+                background: #599642;
+                -webkit-border-top-left-radius: 12px;
+                -webkit-border-bottom-left-radius: 12px;
+                -moz-border-radius-topleft: 12px;
+                -moz-border-radius-bottomleft: 12px;
+                border-top-left-radius: 12px;
+                border-bottom-left-radius: 12px;
+                margin:2px;
+
+            }
+
+
+        </style>
+        <script>
+
+            function tripadvisorRateGenerator(starsFloat) {
+                var output = '';
+                for (var i = 0; i < 5; i++) {
+                    output += '<div class="tripadvisorRateHouse">';
+                    if (starsFloat - i > 0.5) {
+                        output += '<div class="tripadvisorRateCircle"></div>';
+                    } else if (starsFloat - i > 0) {
+                        output += '<div class="tripadvisorRateHalfCircle"></div>';
+                    }
+                    output += '</div>';
+                }
+                return output;
+
+            }
+
+            window.onload = function () {
+                document.getElementById("tripadvisorTest").innerHTML = tripadvisorRateGenerator(2.5)
+            };
+        </script>
+    </head>
+    <body>
+
+
+        <div id="tripadvisorTest">
+        </div>
+
+    </body>
+</html>
